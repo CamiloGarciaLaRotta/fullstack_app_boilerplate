@@ -3,9 +3,9 @@ const path = require('path');
 
 const config = {
     // single entry point to js bundle
-    entry : path.join(__dirname, 'js/index.jsx'),
+    entry : path.join(__dirname, 'dummy_app/static/js/index.jsx'),
     output : {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dummy_app/static/dist'),
         filename: 'bundle.js'
     },
     // Specify how to process each file before bundling
