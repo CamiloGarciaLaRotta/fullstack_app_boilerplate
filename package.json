@@ -25,9 +25,11 @@
       "react"
     ]
   },
+  "engines" : { "node" : "8.9.1" }, 
   "scripts": {
     "build": "webpack -p --progress --config webpack.config.js",
     "dev-build": "webpack --progress -d --config webpack.config.js",
-    "watch": "webpack --progress -d --config webpack.config.js --watch"
+    "watch": "webpack --progress -d --config webpack.config.js --watch",
+    "postinstall": "npm run build"
   }
 }
