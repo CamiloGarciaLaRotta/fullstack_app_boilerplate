@@ -1,1 +1,1 @@
-web: npm run build && python dummy_app/server/server.py
+web: npm install && npm run build && python dummy_app/server/server.py
