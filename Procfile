@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/dummy_app/server" server
+web: npm run build && python dummy_app/server/server.py
