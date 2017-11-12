@@ -1,5 +1,8 @@
 # Full Stack App Boilerplate Code
-Flask + React + Webpack Beta and Prod stages deployed on Heroku
+Flask + React => Continous Deployment on Heroku
+
+[Beta Server](https://dummy-beta.herokuapp.com/) and
+[Prod Server](https://dummy-prod.herokuapp.com/)
 
 ## Table of Contents
 1. [Overview](#overview)
