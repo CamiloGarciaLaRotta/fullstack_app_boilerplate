@@ -1,2 +1,3 @@
 dummy_app/server/.venv/
 dummy_app/static/node_modules/
+dummy_app/static/dist/bundle.js
