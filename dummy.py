@@ -3,11 +3,10 @@ import logging
 from flask import Flask
 app = Flask(__name__)
 
-
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
-@app.route('/')
+@app.route('/app_stage')
 def index():
     return 'Nepe from {}'.format(os.environ['APP_STAGE'])
 
