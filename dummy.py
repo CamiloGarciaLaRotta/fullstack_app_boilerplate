@@ -7,6 +7,7 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
 @app.route('/app_stage')
+@app.route('/')
 def index():
     return 'Nepe from {}'.format(os.environ['APP_STAGE'])
 
