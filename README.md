@@ -8,13 +8,14 @@ Flask + React + Webpack
 
 ## Overview
 ```
-.gitignore
-README.md
 Procfile                        -> Configuration for Continous
 runtime.txt                     -> Deployment through Heroku
+.gitignore
+README.md
+requirements.txt                -> Python dependencies: Flask
+                                   At root dir for Heroku to install on Beta and Prod machines
 dummy_app
 +---server                      -> All Flask logic
-|   |   requirements.txt        -> Python dependencies: Flask
 |   |   server.py
 |   |   
 |   \---.venv
