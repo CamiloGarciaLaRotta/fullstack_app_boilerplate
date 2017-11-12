@@ -8,23 +8,21 @@ Flask + React + Webpack
 
 ## Overview
 ```
-Procfile                        -> Configuration for Continous
-runtime.txt                     -> Deployment through Heroku
-.gitignore
-README.md
+Procfile                        -> Heroku's instructions on how to setup the app
+runtime.txt                     -> Heroku's Python version to use 
+
+# the following 3 are needed at the root dir for Heroku to setup the Beta and Prod machines
+
+package.json                    -> Node dependencies: Webpack, Babel, React
 requirements.txt                -> Python dependencies: Flask
-                                   At root dir for Heroku to install on Beta and Prod machines
+webpack.config.js               -> Configuration of Webpack bundler
+
 dummy_app
-+---server                      -> All Flask logic
-|   |   server.py
-|   |   
-|   \---.venv
-|               
-\---static                      
-    |   index.html
-    |   package-lock.json
-    |   package.json            -> Node dependencies: Webpack, Babel, React
-    |   webpack.config.js       -> Configuration of Webpack bundler 
++---server                      
+|       server.py               -> All Flask logic
+|        
++---static              
+    |   index.html 
     |   
     +---dist                    -> Files to distribute to client
     |       bundle.js           -> Bundle of all js files to distribute
@@ -32,17 +30,16 @@ dummy_app
     |       styles.css
     |       
     +---js                      -> All React logic
-    |       App.jsx             -> Main component
-    |       index.jsx           -> Single entry point to the js bundle
-    |       
-    \---node_modules
+            App.jsx             -> Main component
+            index.jsx           -> Single entry point to the js bundle
+  
 ```
 
 ## Setup
 
 Backend Dependencies
 ```bash
-python -m venv venv
+python -m venv .venv
 pip install flask
 pip freeze > requirements.txt
 ```
@@ -60,9 +57,29 @@ npm install --save webpack babel-loader
 
 ```
 
+
 ## Configuration
 
-Specify how to process each file before bundling -> compile ES6 to ES5
+Heroku Configuration
+How to setup Beta and Production machines: install node dependencies and bundle the js[x] files before running the server
+```bash
+web: npm install && npm run build && python dummy_app/server/server.py
+```
+
+
+```json
+# package.json
+"engines" : { "node" : "8.9.1" }, 
+  "scripts": {
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "watch": "webpack --progress -d --config webpack.config.js --watch",
+    "postinstall": "npm run build"
+}
+```
+
+
+Specify how to process each file before bundling -> compile ES6 to ES5 using Babel
 ```javascript
 # webpack.config.js
 module : {
