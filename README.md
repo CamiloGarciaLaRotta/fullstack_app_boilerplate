@@ -102,7 +102,6 @@ Add scripts to bundle and watch for changes of static js[x] files
   "build": "webpack -p --progress --config webpack.config.js",
   "dev-build": "webpack --progress -d --config webpack.config.js",
   "watch": "webpack --progress -d --config webpack.config.js --watch",
-  ...
 },
 ...
 ```
