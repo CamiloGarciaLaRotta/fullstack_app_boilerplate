@@ -60,28 +60,28 @@ npm install --save webpack babel-loader
 
 ## Configuration
 
-Heroku Configuration
-How to setup Beta and Production machines: install node dependencies and bundle the js[x] files before running the server
+### Heroku Configuration
+Specify how to setup Beta and Production machines: install node dependencies before running the server
 ```bash
 web: npm install && npm run build && python dummy_app/server/server.py
 ```
 
-
+Specify the node version to be installed on the Heroku machines and bundle the js[x] files after installing dependencies
 ```json
 # package.json
+...,
 "engines" : { "node" : "8.9.1" }, 
   "scripts": {
-    "build": "webpack -p --progress --config webpack.config.js",
-    "dev-build": "webpack --progress -d --config webpack.config.js",
-    "watch": "webpack --progress -d --config webpack.config.js --watch",
     "postinstall": "npm run build"
-}
+},
+...
 ```
 
-
-Specify how to process each file before bundling -> compile ES6 to ES5 using Babel
+### Babel-Webpack Configuration
+Specify how to process each file before bundling with Webpack -> compile ES6 to ES5 using Babel
 ```javascript
 # webpack.config.js
+...,
 module : {
     rules : [
         {
@@ -90,15 +90,19 @@ module : {
             use: 'babel-loader'
         }
     ]
-}
+},
+...
 ```
 
 Add scripts to bundle and watch for changes of static js[x] files
 ```json
 # package.json
+...,
 "scripts": {
   "build": "webpack -p --progress --config webpack.config.js",
   "dev-build": "webpack --progress -d --config webpack.config.js",
-  "watch": "webpack --progress -d --config webpack.config.js --watch"
-}
+  "watch": "webpack --progress -d --config webpack.config.js --watch",
+  ...
+},
+...
 ```
