@@ -1,5 +1,5 @@
 # Full Stack App Boilerplate Code
-Flask + React + Webpack
+Flask + React + Webpack Beta and Prod stages deployed on Heroku
 
 ## Table of Contents
 1. [Overview](#overview)
