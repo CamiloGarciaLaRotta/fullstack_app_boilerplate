@@ -16,9 +16,13 @@
          and can be assigned to the component's props-->
     <div id="root" data-jsvar="{{ pyvar }}"></div>
     <footer>
-        <p class="text-muted small">
-                Variable directly obtained from Flask through template: 
-                <code>{{ pyvar }}</code>
+        <p class="text-muted small text-center">
+            Variable directly obtained from server through template: 
+            <code>{{ pyvar }}</code>
+        </p>
+        <p class="text-muted small text-center">
+            Currently being served by 
+            <code>{{ server }}</code>           
         </p>
     </footer>
     <script src="dist/bundle.js" type="text/javascript"></script>

@@ -28,7 +28,7 @@ const App = ({jsvar}) => {
             <div className="col-lg-10 col-lg-offset-1 text-center">
                     <hr />
                     <p className="text-muted small">
-                        Variable obtained from server through props: 
+                        Variable in Component obtained from server through props: 
                         <code>{jsvar}</code>
                     </p>
             </div>
