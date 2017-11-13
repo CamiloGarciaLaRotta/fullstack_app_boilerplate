@@ -1,4 +1,26 @@
-p
+body 
 {
-    background: red;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+small
+{
+    margin: 0;
+    padding: 0;
+    font-size: 0.5em;;
+}
+.jumbotron>hr
+{
+    border-top-color: #FFC107;
+}
+.header_hr
+{
+  border: 2px solid #FFC107;
+  width: 300px;
+}
+.jumbotron
+{
+  background: lightgray;
+  border-radius: 0px!important;
 }
