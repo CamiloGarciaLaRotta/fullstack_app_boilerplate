@@ -2,15 +2,23 @@ import {Grid, Row} from 'react-bootstrap';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Content from './Content';
+import Button from './Button';
 
+// If intensive GET/POST transaction are to occur, consider axios lib
 
-const App = ({jsvar}) => {
+var fetch_data = () => {
+    // TODO try axios
+    var url = 'https://jsonplaceholder.typicode.com/posts/1';
+    fetch(url).then(res => console.log(res.json()))
+              .catch(e => console.log(e));
+}
+
+const App = () => {
     return (
         <div>
         <Grid fluid>
             <Row>
             <div className="jumbotron text-center">
-                {/* Trying to display the foo */}
                 <h1>Dummy App</h1>
                 <hr className="header_hr" />
                 <h3>Should be doing HW instead</h3>
@@ -22,15 +30,13 @@ const App = ({jsvar}) => {
             <Row>
             <Content />
             </Row>
-        </Grid>
-        <Grid>
             <Row>
-            <div className="col-lg-10 col-lg-offset-1 text-center">
-                    <hr />
-                    <p className="text-muted small">
-                        Variable in Component obtained from server through props: 
-                        <code>{jsvar}</code>
-                    </p>
+            <div className="text-center info">
+                <Button
+                    className="btn btn-info"
+                    onClick={() => fetch_data()}>
+                    Get Dummy Data
+                </Button>
             </div>
             </Row>
         </Grid>
@@ -38,8 +44,9 @@ const App = ({jsvar}) => {
     );
 }; 
 
+// typechecking 
 App.PropTypes = {
-    server : PropTypes.string,
+    jsvar : PropTypes.string.isRequired,
 }
 
 export default App;

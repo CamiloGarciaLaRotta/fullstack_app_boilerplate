@@ -1,20 +1,23 @@
-from flask import Flask, render_template
-import os;
+from flask import Flask, render_template, request, jsonify
+import os
 
 APP_STAGE = os.environ['APP_STAGE']
 
-app = Flask(
-    __name__,
-    static_folder = '../static/dist',
-    template_folder = '../static'
-)
+# static folder contains the js/css/img files to be distributed to client
+# template folder contains the html templates to be rendered by Flask
+app = Flask(__name__, static_folder='../static/dist', template_folder='../static')
 
 @app.route('/')
 def index():
-    # trying to pass variable bar to App component mounted on index.html
-    return render_template('index.html', 
-                            pyvar = 'hello',
-                            server = APP_STAGE)
+    return render_template('index.html', pyvar='hello', server=APP_STAGE)
+
+@app.route('/data', methods=['GET'])
+def data():
+    # print(request.args)
+    # resp = 'Server ACKs : {}'.format(request.args.get('data'))
+    print('HITTT')
+    return jsonify({'response': 'HITTT'})
+
 
 if __name__ == '__main__':
     app.debug = APP_STAGE == 'DEVELOPMENT'
