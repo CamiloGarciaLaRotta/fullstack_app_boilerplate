@@ -8,7 +8,8 @@ import Button from './Button';
 
 var fetch_data = () => {
     // TODO try axios
-    var url = 'https://jsonplaceholder.typicode.com/posts/1';
+    //var url = 'https://jsonplaceholder.typicode.com/posts/1';
+    var url = '/data'
     fetch(url).then(res => console.log(res.json()))
               .catch(e => console.log(e));
 }
