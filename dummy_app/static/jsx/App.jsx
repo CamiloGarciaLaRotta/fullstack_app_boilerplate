@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import Content from './Content';
 
 
-const App = ({bar}) => {
+const App = ({jsvar}) => {
     return (
         <div>
         <Grid fluid>
             <Row>
             <div className="jumbotron text-center">
                 {/* Trying to display the foo */}
-                <h1>Dummy App { bar }</h1>
+                <h1>Dummy App</h1>
                 <hr className="header_hr" />
                 <h3>Should be doing HW instead</h3>
                 <small>srlsy tho</small>
@@ -21,6 +21,17 @@ const App = ({bar}) => {
         <Grid>
             <Row>
             <Content />
+            </Row>
+        </Grid>
+        <Grid>
+            <Row>
+            <div className="col-lg-10 col-lg-offset-1 text-center">
+                    <hr />
+                    <p className="text-muted small">
+                        Variable obtained from server through props: 
+                        <code>{jsvar}</code>
+                    </p>
+            </div>
             </Row>
         </Grid>
         </div>

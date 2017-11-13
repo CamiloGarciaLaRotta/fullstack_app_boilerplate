@@ -10,8 +10,17 @@
 </head>
 <body>
     <noscript>You need JS to run this app</noscript>
-    {{ bar }}
-    <div id="content" bar="{{ bar }}"></div>
+    <!-- when passing data to React component from Flask:
+         prepend the varname with "data-"
+         it will be accessible as [div_id].dataset
+         and can be assigned to the component's props-->
+    <div id="root" data-jsvar="{{ pyvar }}"></div>
+    <footer>
+        <p class="text-muted small">
+                Variable directly obtained from Flask through template: 
+                <code>{{ pyvar }}</code>
+        </p>
+    </footer>
     <script src="dist/bundle.js" type="text/javascript"></script>
 </body>
 </html>
