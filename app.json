@@ -1,0 +1,7 @@
+{
+    "name": "Flask + React frame",
+    "description": "Webpack to bundle js[x], Babel to compile ES6",
+    "repository": "https://github.com/CamiloGarciaLaRotta/fullstack_app_boilerplate",
+    "logo": "https://avatars0.githubusercontent.com/u/17187770?s=460&v=4",
+    "keywords": ["Flask","React","Babel","Webpack"]
+}
