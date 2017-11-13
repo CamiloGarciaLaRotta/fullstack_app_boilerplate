@@ -4,6 +4,8 @@ Flask + React => Continous Deployment on Heroku
 [Beta Server](https://dummy-beta.herokuapp.com/) and
 [Prod Server](https://dummy-prod.herokuapp.com/)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Table of Contents
 1. [Overview](#overview)
 2. [Setup](#setup)
@@ -16,6 +18,7 @@ runtime.txt                     -> Heroku's Python version to use
 
 # the following 3 are needed at the root dir for Heroku to setup the Beta and Prod machines
 
+app.json                        -> Information for the Heroku Deploy button
 package.json                    -> Node dependencies: Webpack, Babel, React
 requirements.txt                -> Python dependencies: Flask
 webpack.config.js               -> Configuration of Webpack bundler
