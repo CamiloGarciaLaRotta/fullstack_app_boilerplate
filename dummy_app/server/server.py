@@ -9,7 +9,8 @@ app = Flask(
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # trying to pass variable bar to App component mounted on index.html
+    return render_template('index.html', bar='hello')
 
 if __name__ == '__main__':
     app.debug = os.environ['APP_STAGE'] == 'DEVELOPMENT'

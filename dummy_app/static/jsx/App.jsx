@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import Content from './Content';
 
 
-const App = () => {
+const App = ({foo}) => {
     return (
         <div>
         <Grid fluid>
             <Row>
             <div className="jumbotron text-center">
-                <h1>Dummy App</h1>
+                {/* Trying to display the foo */}
+                <h1>Dummy App { foo }</h1>
                 <hr className="header_hr" />
                 <h3>Should be doing HW instead</h3>
                 <small>srlsy tho</small>
