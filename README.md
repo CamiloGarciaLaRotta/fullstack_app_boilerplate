@@ -53,10 +53,12 @@ pip freeze > requirements.txt
 Frontend Dependencies
 ```bash
 npm init
+# ES6 + react
 npm install --save react react-dom
+npm install --save prop-types
 # compiler
 npm install --save babel-core
-npm install --save babel-preset-es2015
+npm install --save babel-preset-latest
 npm install --save babel-preset-react
 # bundler 
 npm install --save webpack babel-loader

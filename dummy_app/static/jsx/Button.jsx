@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Stateless Functional Component 
 const Button = ({onClick, children, className=''}) => 
 <button 
     className={className}

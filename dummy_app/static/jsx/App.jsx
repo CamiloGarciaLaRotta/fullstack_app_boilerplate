@@ -6,43 +6,60 @@ import Button from './Button';
 
 // If intensive GET/POST transaction are to occur, consider axios lib
 
-var fetch_data = () => {
-    // TODO try axios
-    //var url = 'https://jsonplaceholder.typicode.com/posts/1';
-    var url = '/data'
-    fetch(url).then(res => console.log(res.json()))
-              .catch(e => console.log(e));
-}
+// Stateful Component
+class App extends Component 
+{
+    constructor(props)
+    {
+        super(props);
 
-const App = () => {
-    return (
-        <div>
-        <Grid fluid>
-            <Row>
-            <div className="jumbotron text-center">
-                <h1>Dummy App</h1>
-                <hr className="header_hr" />
-                <h3>Should be doing HW instead</h3>
-                <small>srlsy tho</small>
+        this.state = {
+            result: null
+        }
+
+         // bind function call to the component
+         this.fetch_data = this.fetch_data.bind(this);
+    }
+
+    fetch_data()
+    {
+        const url = 'http://numbersapi.com/42?json';
+        fetch(url).then(data => data.json())
+                  .then(res => this.setState({result: res.text}))
+                  .catch(e => console.log(e));
+    }
+
+    render()
+    {
+        return (
+            <div>
+            <Grid fluid>
+                <Row>
+                <div className="jumbotron text-center">
+                    <h1>Dummy App</h1>
+                    <hr className="header_hr" />
+                    <h3>Should be doing HW instead</h3>
+                    <small>srlsy tho</small>
+                </div>
+                </Row>
+            </Grid>
+            <Grid>
+                <Row>
+                {<Content result={this.state.result} />}
+                </Row>
+                <Row>
+                <div className="text-center">
+                    <Button
+                        className="btn btn-info"
+                        onClick={this.fetch_data}>
+                        Query Number API
+                    </Button>
+                </div>
+                </Row>
+            </Grid>
             </div>
-            </Row>
-        </Grid>
-        <Grid>
-            <Row>
-            <Content />
-            </Row>
-            <Row>
-            <div className="text-center info">
-                <Button
-                    className="btn btn-info"
-                    onClick={() => fetch_data()}>
-                    Get Dummy Data
-                </Button>
-            </div>
-            </Row>
-        </Grid>
-        </div>
-    );
+        );
+    }
 }; 
 
 // typechecking 

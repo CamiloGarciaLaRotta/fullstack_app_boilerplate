@@ -14,9 +14,8 @@ def index():
 @app.route('/data', methods=['GET'])
 def data():
     # print(request.args)
-    # resp = 'Server ACKs : {}'.format(request.args.get('data'))
-    print('HITTT')
-    return jsonify({'response': 'HITTT'})
+    resp = 'Server ACKs : {}'.format(request.args.get('data'))
+    return jsonify({'response': resp})
 
 
 if __name__ == '__main__':

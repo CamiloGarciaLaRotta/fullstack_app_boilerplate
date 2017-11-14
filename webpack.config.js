@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-    // single entry point to js bundle
+    // single entry point file for the output bundle
     entry : path.join(__dirname, 'dummy_app/static/jsx/index.jsx'),
     output : {
         path: path.join(__dirname, 'dummy_app/static/dist'),
