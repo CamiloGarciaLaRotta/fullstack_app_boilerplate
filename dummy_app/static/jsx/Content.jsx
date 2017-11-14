@@ -3,7 +3,7 @@ import React from 'react';
 // Stateless Functional Component 
 const Content = ({result}) => {
     return (
-        <div className="col-sm-10 col-sm-offset-1">
+        <div className="col-sm-10 col-sm-offset-1 text-center">
             <p>
             {
                 result || 

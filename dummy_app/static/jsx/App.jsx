@@ -23,9 +23,9 @@ class App extends Component
 
     fetch_data()
     {
-        const url = 'http://numbersapi.com/42?json';
+        const url = 'https://api.punkapi.com/v2/beers/random';
         fetch(url).then(data => data.json())
-                  .then(res => this.setState({result: res.text}))
+                  .then(res => this.setState({result: res[0].name}))
                   .catch(e => console.log(e));
     }
 
@@ -52,7 +52,7 @@ class App extends Component
                     <Button
                         className="btn btn-info"
                         onClick={this.fetch_data}>
-                        Query Number API
+                        Query Beer API
                     </Button>
                 </div>
                 </Row>
